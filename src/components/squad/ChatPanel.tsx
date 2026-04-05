@@ -78,6 +78,7 @@ export default function ChatPanel({ agentId, events, onSend }: ChatPanelProps) {
                 key={`${event.timestamp}-${i}`}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
                 className="flex items-start gap-3"
               >
                 {/* Avatar */}

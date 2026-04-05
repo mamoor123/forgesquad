@@ -70,7 +70,7 @@ export class Orchestrator {
     this.state.status = 'running';
     this.running = true;
     this.emitMessage('S', 'Continuing build...');
-    this.schedule(() => this.enterPhase('coding'), 1000);
+    this.schedule(() => this.enterPhase(this.state.phase), 1000);
   }
 
   pause(): void {

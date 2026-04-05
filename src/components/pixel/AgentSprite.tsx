@@ -2,20 +2,13 @@
 
 import { motion } from 'framer-motion';
 import clsx from 'clsx';
+import { AGENTS, Agent } from '@/lib/agents';
 
 interface AgentSpriteProps {
-  agent: 'S' | 'A' | 'B' | 'C' | 'D';
+  agent: Agent['id'];
   active?: boolean;
   size?: 'sm' | 'md' | 'lg';
 }
-
-const AGENT_COLORS: Record<string, string> = {
-  S: '#00d4ff',
-  A: '#10b981',
-  B: '#f59e0b',
-  C: '#8b5cf6',
-  D: '#f43f5e',
-};
 
 const AGENT_INITIALS: Record<string, string> = {
   S: 'SP',
@@ -26,7 +19,7 @@ const AGENT_INITIALS: Record<string, string> = {
 };
 
 export default function AgentSprite({ agent, active = false, size = 'md' }: AgentSpriteProps) {
-  const color = AGENT_COLORS[agent];
+  const color = AGENTS[agent].color;
   const initials = AGENT_INITIALS[agent];
 
   const sizeClasses = {
