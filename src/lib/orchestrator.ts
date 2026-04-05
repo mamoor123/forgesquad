@@ -119,7 +119,7 @@ export class Orchestrator {
   private enterPhase(phase: PipelinePhase): void {
     if (!this.running) return;
     this.state.phase = phase;
-    const agent = PHASE_AGENTS[phase] as AgentId;
+    const agent = PHASE_AGENTS[phase];
     this.state.activeAgent = agent;
     this.emit(createPhaseStart(phase, agent));
 

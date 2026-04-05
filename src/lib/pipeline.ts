@@ -1,6 +1,6 @@
 // Pipeline phase management
 
-import { PipelinePhase } from './signals';
+import { PipelinePhase, AgentId } from './signals';
 
 export const PHASES: PipelinePhase[] = ['concept', 'planning', 'reviewing', 'coding', 'testing', 'done'];
 
@@ -24,7 +24,7 @@ export const PHASE_COLORS: Record<PipelinePhase, string> = {
   done: '#22c55e',
 };
 
-export const PHASE_AGENTS: Record<PipelinePhase, string> = {
+export const PHASE_AGENTS: Record<PipelinePhase, AgentId> = {
   idle: 'S',
   concept: 'S',
   planning: 'A',

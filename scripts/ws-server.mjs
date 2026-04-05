@@ -7,6 +7,15 @@ const PORT = parseInt(process.env.WS_PORT || '3001', 10);
 const wss = new WebSocketServer({ port: PORT });
 const clients = new Set();
 
+wss.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.error(`[WS] Port ${PORT} already in use. Set WS_PORT env var to change.`);
+  } else {
+    console.error('[WS] Server error:', err.message);
+  }
+  process.exit(1);
+});
+
 wss.on('connection', (ws) => {
   clients.add(ws);
   console.log(`[WS] Client connected (${clients.size})`);
@@ -27,6 +36,11 @@ wss.on('connection', (ws) => {
   ws.on('close', () => {
     clients.delete(ws);
     console.log(`[WS] Client disconnected (${clients.size})`);
+  });
+
+  ws.on('error', (err) => {
+    console.error('[WS] Client error:', err.message);
+    clients.delete(ws);
   });
 
   ws.send(JSON.stringify({

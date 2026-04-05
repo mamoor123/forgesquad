@@ -105,6 +105,16 @@ export default function OfficeView() {
     setShowPlan(true);
   }, []);
 
+  // Close plan modal on Escape
+  useEffect(() => {
+    if (!showPlan) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setShowPlan(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [showPlan]);
+
   const handleChatSend = useCallback(() => {
     if (!chatInput.trim()) return;
     // Add as a concept message
