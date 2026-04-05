@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Clock, FileText, AlertTriangle } from 'lucide-react';
 
@@ -86,6 +87,3 @@ export default function StatsBar({ startTime, fileCount, errorCount, status }: S
     </div>
   );
 }
-
-// Need to import React for useEffect and useState
-import React from 'react';

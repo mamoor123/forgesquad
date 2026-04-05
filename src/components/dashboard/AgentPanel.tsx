@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
 import { AGENTS, Agent } from '@/lib/agents';
 import Badge from '@/components/shared/Badge';
@@ -136,5 +137,3 @@ export default function AgentPanel({ agentId, events, active, expanded, onToggle
     </motion.div>
   );
 }
-
-import React from 'react';

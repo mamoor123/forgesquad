@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PipelineSignal } from '@/lib/signals';
 import { AGENTS } from '@/lib/agents';
@@ -112,5 +113,3 @@ function formatSignalType(type: string): string {
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join(' ');
 }
-
-import React from 'react';
