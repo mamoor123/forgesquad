@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { AGENTS, Agent } from '@/lib/agents';
+import { AGENTS } from '@/lib/agents';
 import Badge from '@/components/shared/Badge';
 import { PipelineSignal } from '@/lib/signals';
 import clsx from 'clsx';

@@ -13,8 +13,6 @@ export interface OrchestratorState {
   reviewRound: number;
   codeRound: number;
   concept: string;
-  messageIndex: Record<string, number>;
-  fileIndex: number;
 }
 
 export class Orchestrator {
@@ -26,13 +24,10 @@ export class Orchestrator {
     reviewRound: 0,
     codeRound: 0,
     concept: '',
-    messageIndex: { A: 0, B: 0, C: 0, D: 0, S: 0 },
-    fileIndex: 0,
   };
 
   private listeners: OrchestratorEvent[] = [];
   private timer: ReturnType<typeof setTimeout> | null = null;
-  private stepQueue: (() => void)[] = [];
   private running = false;
 
   getState(): OrchestratorState {
@@ -52,12 +47,6 @@ export class Orchestrator {
 
   private emitMessage(agent: AgentId, message: string): void {
     this.emit(createMessage(agent, this.state.phase, message));
-  }
-
-  private nextMsg(agent: AgentId): number {
-    const idx = this.state.messageIndex[agent];
-    this.state.messageIndex[agent] = idx + 1;
-    return idx;
   }
 
   start(concept: string = 'Build a task management app'): void {
@@ -92,7 +81,6 @@ export class Orchestrator {
       this.timer = null;
     }
     this.emitMessage('S', 'Pipeline paused.');
-    this.stepQueue = [];
   }
 
   stop(): void {
@@ -104,7 +92,6 @@ export class Orchestrator {
       clearTimeout(this.timer);
       this.timer = null;
     }
-    this.stepQueue = [];
     this.emitMessage('S', 'Pipeline stopped.');
   }
 
@@ -118,8 +105,6 @@ export class Orchestrator {
       reviewRound: 0,
       codeRound: 0,
       concept: '',
-      messageIndex: { A: 0, B: 0, C: 0, D: 0, S: 0 },
-      fileIndex: 0,
     };
     this.emit(createSignal('pipeline_reset', 'S', 'idle', {}));
   }
@@ -191,7 +176,6 @@ export class Orchestrator {
 
   private runReviewingPhase(): void {
     const round = this.state.reviewRound;
-    const maxRounds = 2;
     const approveOnRound = 1;
 
     if (round < approveOnRound) {

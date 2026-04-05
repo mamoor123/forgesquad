@@ -2,31 +2,6 @@
 
 import { motion } from 'framer-motion';
 
-interface DeskProps {
-  color?: string;
-  glow?: boolean;
-}
-
-export function Desk({ color = '#1e2740', glow = false }: DeskProps) {
-  return (
-    <div className="relative">
-      {/* Desk surface */}
-      <div
-        className="w-16 h-6 rounded-sm"
-        style={{
-          backgroundColor: color,
-          boxShadow: glow ? `0 0 10px ${color}40` : 'none',
-        }}
-      />
-      {/* Desk legs */}
-      <div className="flex justify-between px-1">
-        <div className="w-1 h-4 bg-[#2a3655]" />
-        <div className="w-1 h-4 bg-[#2a3655]" />
-      </div>
-    </div>
-  );
-}
-
 export function Monitor({ color, active }: { color: string; active: boolean }) {
   return (
     <div className="relative">
