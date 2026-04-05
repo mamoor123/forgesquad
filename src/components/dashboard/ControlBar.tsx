@@ -1,6 +1,6 @@
 'use client';
 
-import { Play, Square, RotateCcw, SkipForward, Eye, Zap, FileSearch } from 'lucide-react';
+import { Square, RotateCcw, SkipForward, Zap, FileSearch } from 'lucide-react';
 import Button from '@/components/shared/Button';
 import { PipelinePhase } from '@/lib/signals';
 

@@ -1,11 +1,10 @@
 'use client';
 
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { motion } from 'framer-motion';
 import AgentTabs from './AgentTabs';
 import ChatPanel from './ChatPanel';
 import { Orchestrator, getOrchestrator } from '@/lib/orchestrator';
-import { PipelineSignal, PipelinePhase } from '@/lib/signals';
+import { PipelineSignal, PipelinePhase, AgentId } from '@/lib/signals';
 import Badge from '@/components/shared/Badge';
 import { Zap, RotateCcw, Square } from 'lucide-react';
 
@@ -71,7 +70,7 @@ export default function SquadView() {
           ...prev.events,
           {
             type: 'agent_message',
-            agent: activeTab as any,
+            agent: activeTab as AgentId,
             phase: prev.phase,
             payload: { message: `[You]: ${message}` },
             timestamp: Date.now(),

@@ -51,14 +51,3 @@ export const AGENTS: Record<Agent['id'], Agent> = {
     description: 'Reviews code against plan, runs tests, loops with coder until passing',
   },
 };
-
-export const SPECIALIST_AGENTS = ['A', 'B', 'C', 'D'] as const;
-export type SpecialistId = (typeof SPECIALIST_AGENTS)[number];
-
-export function getAgentColor(id: Agent['id']): string {
-  return AGENTS[id].color;
-}
-
-export function getAgentName(id: Agent['id']): string {
-  return AGENTS[id].name;
-}

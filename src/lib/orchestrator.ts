@@ -1,12 +1,7 @@
 // Core pipeline orchestrator — manages the state machine
 
-import { PipelineSignal, PipelinePhase, AgentId, createSignal, createMessage, createPhaseStart, createPhaseComplete, createFileWritten, createTestResult } from './signals';
-import { getNextPhase, PHASE_AGENTS } from './pipeline';
-import { getPlannerMessage } from './planner';
-import { getReviewerMessage } from './reviewer';
-import { getCoderMessage, getFile } from './coder';
-import { getTesterMessage } from './tester';
-import { getSupervisorMessage } from './supervisor';
+import { PipelineSignal, PipelinePhase, AgentId, createSignal, createMessage, createPhaseStart, createPhaseComplete, createFileWritten } from './signals';
+import { PHASE_AGENTS } from './pipeline';
 
 export type OrchestratorEvent = (signal: PipelineSignal) => void;
 

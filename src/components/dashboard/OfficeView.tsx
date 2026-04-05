@@ -37,7 +37,6 @@ export default function OfficeView() {
   const [expandedPanel, setExpandedPanel] = useState<string | null>(null);
   const [showPlan, setShowPlan] = useState(false);
   const [chatInput, setChatInput] = useState('');
-  const [showChat, setShowChat] = useState(false);
 
   // Subscribe to orchestrator events
   useEffect(() => {
@@ -184,8 +183,7 @@ export default function OfficeView() {
           {/* Supervisor chat */}
           <div className="flex-1 flex flex-col min-h-0">
             <div
-              className="flex items-center gap-2 px-4 py-2 border-b border-[#1e2740] cursor-pointer hover:bg-[#111827]"
-              onClick={() => setShowChat(!showChat)}
+              className="flex items-center gap-2 px-4 py-2 border-b border-[#1e2740]"
             >
               <Eye className="w-4 h-4 text-cyan-400" />
               <span className="text-sm font-medium text-cyan-400">Supervisor</span>

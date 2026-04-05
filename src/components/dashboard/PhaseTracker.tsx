@@ -17,7 +17,6 @@ export default function PhaseTracker({ phase }: PhaseTrackerProps) {
         {PHASES.map((p, i) => {
           const isPast = i < currentIdx;
           const isCurrent = i === currentIdx;
-          const isFuture = i > currentIdx;
           const color = PHASE_COLORS[p];
 
           return (
