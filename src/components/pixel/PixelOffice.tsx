@@ -10,14 +10,6 @@ interface PixelOfficeProps {
   phase: PipelinePhase;
 }
 
-const AGENTS = [
-  { id: 'S' as const, name: 'Supervisor', color: '#00d4ff', x: 0, y: 0 },
-  { id: 'A' as const, name: 'Planner', color: '#10b981', x: 1, y: 0 },
-  { id: 'B' as const, name: 'Reviewer', color: '#f59e0b', x: 2, y: 0 },
-  { id: 'C' as const, name: 'Coder', color: '#8b5cf6', x: 1, y: 1 },
-  { id: 'D' as const, name: 'Tester', color: '#f43f5e', x: 2, y: 1 },
-];
-
 export default function PixelOffice({ activeAgent, phase }: PixelOfficeProps) {
   const isActive = (id: string) => activeAgent === id;
   const isOnline = phase !== 'idle';
@@ -58,10 +50,10 @@ export default function PixelOffice({ activeAgent, phase }: PixelOfficeProps) {
 
           {/* Connection from S to A */}
           <div className="absolute" style={{ left: 110, top: 70 }}>
-            <ConnectionLine from="S" to="A" color="#00d4ff" active={isActive('S') || isActive('A')} />
+            <ConnectionLine color="#00d4ff" active={isActive('S') || isActive('A')} />
           </div>
           <div className="absolute" style={{ left: 180, top: 70 }}>
-            <ConnectionLine from="S" to="B" color="#00d4ff" active={isActive('S') || isActive('B')} />
+            <ConnectionLine color="#00d4ff" active={isActive('S') || isActive('B')} />
           </div>
 
           {/* Row 1: Planner, Reviewer */}
@@ -99,10 +91,10 @@ export default function PixelOffice({ activeAgent, phase }: PixelOfficeProps) {
 
           {/* Connections between rows */}
           <div className="absolute" style={{ left: 110, top: 110 }}>
-            <ConnectionLine from="A" to="C" color="#10b981" active={isActive('A') || isActive('C')} />
+            <ConnectionLine color="#10b981" active={isActive('A') || isActive('C')} />
           </div>
           <div className="absolute" style={{ left: 180, top: 110 }}>
-            <ConnectionLine from="B" to="D" color="#f59e0b" active={isActive('B') || isActive('D')} />
+            <ConnectionLine color="#f59e0b" active={isActive('B') || isActive('D')} />
           </div>
 
           {/* Row 2: Coder, Tester */}
@@ -140,7 +132,7 @@ export default function PixelOffice({ activeAgent, phase }: PixelOfficeProps) {
 
           {/* Bidirectional C-D connection */}
           <div className="absolute" style={{ left: 130, top: 170 }}>
-            <ConnectionLine from="C" to="D" color="#8b5cf6" active={isActive('C') || isActive('D')} />
+            <ConnectionLine color="#8b5cf6" active={isActive('C') || isActive('D')} />
           </div>
         </div>
       </div>

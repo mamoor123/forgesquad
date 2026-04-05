@@ -38,13 +38,9 @@ export function Monitor({ color, active }: { color: string; active: boolean }) {
 }
 
 export function ConnectionLine({
-  from,
-  to,
   color,
   active,
 }: {
-  from: string;
-  to: string;
   color: string;
   active: boolean;
 }) {

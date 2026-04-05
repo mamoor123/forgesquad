@@ -231,6 +231,7 @@ export default function OfficeView() {
                   onChange={(e) => setChatInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleChatSend()}
                   placeholder="Talk to the Supervisor..."
+                  aria-label="Chat with Supervisor"
                   className="flex-1 bg-[#111827] border border-[#2a3655] rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 font-mono"
                 />
                 <button

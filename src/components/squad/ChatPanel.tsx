@@ -153,6 +153,7 @@ export default function ChatPanel({ agentId, events, onSend }: ChatPanelProps) {
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSend()}
             placeholder={`Message ${agent.name}...`}
+            aria-label={`Message ${agent.name}`}
             className="flex-1 bg-[#111827] border border-[#2a3655] rounded-lg px-3 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none font-mono"
             style={{
               borderColor: `${agent.color}20`,

@@ -63,6 +63,10 @@ export default function AgentPanel({ agentId, events, active, expanded, onToggle
         boxShadow: active ? `0 0 20px ${agent.color}10` : 'none',
       }}
       onClick={onToggleExpand}
+      onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onToggleExpand()}
+      role="button"
+      tabIndex={0}
+      aria-label={`${agent.name} panel - click to ${expanded ? 'collapse' : 'expand'}`}
       whileHover={{ borderColor: `${agent.color}40` }}
     >
       {/* Header */}
