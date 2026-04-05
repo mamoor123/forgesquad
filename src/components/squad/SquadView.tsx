@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import AgentTabs from './AgentTabs';
 import ChatPanel from './ChatPanel';
 import { Orchestrator, getOrchestrator } from '@/lib/orchestrator';
@@ -39,7 +39,6 @@ export default function SquadView() {
 
     return () => {
       unsub();
-      orch.stop();
     };
   }, []);
 

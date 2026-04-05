@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Clock, FileText, AlertTriangle } from 'lucide-react';
 
@@ -12,9 +12,9 @@ interface StatsBarProps {
 }
 
 export default function StatsBar({ startTime, fileCount, errorCount, status }: StatsBarProps) {
-  const [elapsed, setElapsed] = React.useState('00:00');
+  const [elapsed, setElapsed] = useState('00:00');
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!startTime) {
       setElapsed('00:00');
       return;

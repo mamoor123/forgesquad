@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PipelineSignal } from '@/lib/signals';
 import { AGENTS } from '@/lib/agents';
@@ -11,10 +11,10 @@ interface LiveFeedProps {
 }
 
 export default function LiveFeed({ events }: LiveFeedProps) {
-  const containerRef = React.useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // Auto-scroll to bottom
-  React.useEffect(() => {
+  useEffect(() => {
     if (containerRef.current) {
       containerRef.current.scrollTop = containerRef.current.scrollHeight;
     }

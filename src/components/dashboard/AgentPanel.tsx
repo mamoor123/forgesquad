@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { AGENTS } from '@/lib/agents';
 import Badge from '@/components/shared/Badge';
@@ -17,7 +17,7 @@ interface AgentPanelProps {
 
 export default function AgentPanel({ agentId, events, active, expanded, onToggleExpand }: AgentPanelProps) {
   const agent = AGENTS[agentId];
-  const outputRef = React.useRef<HTMLDivElement>(null);
+  const outputRef = useRef<HTMLDivElement>(null);
 
   // Filter events for this agent
   const agentEvents = events.filter((e) => e.agent === agentId);
@@ -44,7 +44,7 @@ export default function AgentPanel({ agentId, events, active, expanded, onToggle
   const status = getStatus();
 
   // Auto-scroll
-  React.useEffect(() => {
+  useEffect(() => {
     if (outputRef.current) {
       outputRef.current.scrollTop = outputRef.current.scrollHeight;
     }

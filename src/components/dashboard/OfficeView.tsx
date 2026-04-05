@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Orchestrator, getOrchestrator } from '@/lib/orchestrator';
 import { PipelineSignal, PipelinePhase } from '@/lib/signals';
@@ -68,7 +68,6 @@ export default function OfficeView() {
 
     return () => {
       unsub();
-      orch.stop();
     };
   }, []);
 
