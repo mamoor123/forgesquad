@@ -86,7 +86,8 @@ export default function OfficeView() {
   }, []);
 
   const handleReset = useCallback(() => {
-    orchRef.current.reset();
+    // Clear local state first, then reset orchestrator
+    // (prevents race where orchestrator signals get added then immediately wiped)
     setState({
       phase: 'idle',
       status: 'idle',
@@ -97,6 +98,7 @@ export default function OfficeView() {
       startTime: null,
     });
     setShowPlan(false);
+    orchRef.current.reset();
   }, []);
 
   const handleViewPlan = useCallback(() => {

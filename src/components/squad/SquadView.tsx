@@ -52,13 +52,13 @@ export default function SquadView() {
   }, []);
 
   const handleReset = useCallback(() => {
-    orchRef.current.reset();
     setState({
       phase: 'idle',
       status: 'idle',
       activeAgent: null,
       events: [],
     });
+    orchRef.current.reset();
   }, []);
 
   const handleChatSend = useCallback(
