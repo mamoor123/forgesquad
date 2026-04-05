@@ -30,5 +30,14 @@
     "concurrently": "^8.2.0",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.0"
+  },
+  "license": "MIT",
+  "description": "Multi-agent dev team orchestrator — 5 agents, one pipeline, bulletproof builds",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mamoor123/forgesquad.git"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }

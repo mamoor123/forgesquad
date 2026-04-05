@@ -1,19 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  --color-space-900: #0a0e1a;
-  --color-space-950: #060912;
-  --color-space-800: #111827;
-  --color-space-700: #1e2740;
-  --color-space-600: #2a3655;
-  --color-space-500: #3d4f6f;
-
-  --color-agent-supervisor: #00d4ff;
-  --color-agent-planner: #10b981;
-  --color-agent-reviewer: #f59e0b;
-  --color-agent-coder: #8b5cf6;
-  --color-agent-tester: #f43f5e;
-
   --font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
   --font-sans: "Inter", system-ui, sans-serif;
 }
