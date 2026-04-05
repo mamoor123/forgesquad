@@ -185,9 +185,9 @@ export default function OfficeView() {
 
           {/* Phase tracker */}
           <div className="px-4 py-3 border-b border-[#1e2740]">
-            <h3 className="text-xs text-gray-500 font-mono uppercase tracking-wider mb-3">
+            <h2 className="text-xs text-gray-500 font-mono uppercase tracking-wider mb-3">
               Pipeline Progress
-            </h3>
+            </h2>
             <PhaseTracker phase={state.phase} />
           </div>
 
@@ -244,11 +244,12 @@ export default function OfficeView() {
                   onKeyDown={(e) => e.key === 'Enter' && handleChatSend()}
                   placeholder="Talk to the Supervisor..."
                   aria-label="Chat with Supervisor"
-                  className="flex-1 bg-[#111827] border border-[#2a3655] rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 font-mono"
+                  className="flex-1 bg-[#111827] border border-[#2a3655] rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 font-mono"
                 />
                 <button
                   onClick={handleChatSend}
-                  className="p-2 bg-cyan-600/20 hover:bg-cyan-600/30 border border-cyan-600/30 rounded-lg text-cyan-400 transition-colors"
+                  aria-label="Send message"
+                  className="p-3 bg-cyan-600/20 hover:bg-cyan-600/30 border border-cyan-600/30 rounded-lg text-cyan-400 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
                 >
                   <Send className="w-4 h-4" />
                 </button>
@@ -292,9 +293,9 @@ export default function OfficeView() {
           <div className="h-48 border-t border-[#1e2740] px-4 py-2">
             <div className="flex items-center gap-2 mb-2">
               <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-              <h3 className="text-xs text-gray-500 font-mono uppercase tracking-wider">
+              <h2 className="text-xs text-gray-500 font-mono uppercase tracking-wider">
                 Live Feed
-              </h3>
+              </h2>
               <span className="text-xs text-gray-600 font-mono ml-auto">
                 {state.events.length} events
               </span>

@@ -59,9 +59,9 @@ export default function ChatPanel({ agentId, events, onSend }: ChatPanelProps) {
                 {agent.id}
               </span>
             </div>
-            <h3 className="text-white font-medium mb-1">
+            <h2 className="text-white font-medium mb-1">
               {agent.name}
-            </h3>
+            </h2>
             <p className="text-gray-500 text-sm font-mono">
               {agent.role} — {agent.description}
             </p>
@@ -155,14 +155,15 @@ export default function ChatPanel({ agentId, events, onSend }: ChatPanelProps) {
             onKeyDown={(e) => e.key === 'Enter' && handleSend()}
             placeholder={`Message ${agent.name}...`}
             aria-label={`Message ${agent.name}`}
-            className="flex-1 bg-[#111827] border border-[#2a3655] rounded-lg px-3 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none font-mono"
+            className="flex-1 bg-[#111827] border border-[#2a3655] rounded-lg px-3 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 font-mono"
             style={{
               borderColor: `${agent.color}20`,
             }}
           />
           <button
             onClick={handleSend}
-            className="px-4 py-2.5 rounded-lg transition-all duration-200 hover:brightness-110"
+            aria-label="Send message"
+            className="px-4 py-2.5 rounded-lg transition-all duration-200 hover:brightness-110 min-w-[44px] min-h-[44px] flex items-center justify-center"
             style={{
               backgroundColor: `${agent.color}20`,
               border: `1px solid ${agent.color}30`,

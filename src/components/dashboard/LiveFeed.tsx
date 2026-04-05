@@ -29,7 +29,7 @@ export default function LiveFeed({ events }: LiveFeedProps) {
   }
 
   return (
-    <div ref={containerRef} className="h-full overflow-y-auto pr-2 space-y-0.5">
+    <div ref={containerRef} className="h-full overflow-y-auto pr-2 space-y-0.5" role="log" aria-live="polite" aria-label="Pipeline event feed">
       <AnimatePresence initial={false}>
         {events.map((event, i) => {
           const agent = AGENTS[event.agent];
