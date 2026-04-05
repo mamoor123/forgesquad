@@ -55,15 +55,3 @@ export function createPhaseComplete(phase: PipelinePhase, agent: AgentId): Pipel
 export function createFileWritten(agent: AgentId, path: string, lines: number): PipelineSignal {
   return createSignal('file_written', agent, 'coding', { path, lines });
 }
-
-export function createTestResult(agent: AgentId, passed: number, failed: number, details: string): PipelineSignal {
-  return createSignal('test_result', agent, 'testing', { passed, failed, details });
-}
-
-export function createQuestion(agent: AgentId, phase: PipelinePhase, question: string): PipelineSignal {
-  return createSignal('agent_question', agent, phase, { question });
-}
-
-export function createAnswer(agent: AgentId, phase: PipelinePhase, answer: string): PipelineSignal {
-  return createSignal('agent_answer', agent, phase, { answer });
-}

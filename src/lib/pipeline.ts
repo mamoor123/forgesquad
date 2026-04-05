@@ -34,18 +34,6 @@ export const PHASE_AGENTS: Record<PipelinePhase, AgentId> = {
   done: 'S',
 };
 
-export function getNextPhase(phase: PipelinePhase): PipelinePhase | null {
-  const idx = PHASES.indexOf(phase);
-  if (idx < 0 || idx >= PHASES.length - 1) return null;
-  return PHASES[idx + 1];
-}
-
-export function getPhaseProgress(phase: PipelinePhase): number {
-  const idx = PHASES.indexOf(phase);
-  if (idx < 0) return 0;
-  return Math.round((idx / (PHASES.length - 1)) * 100);
-}
-
 export function getPhaseIndex(phase: PipelinePhase): number {
   return PHASES.indexOf(phase);
 }
